@@ -7,10 +7,13 @@ class Tskr < Formula
   license "MIT"
 
   def install
-    cd "tskr" do
-      libexec.install Dir["*"]
-    end
-    bin.install_symlink libexec/"tskr"
+    # Debug: print what's in the current directory
+    ohai "Current directory:", Dir.pwd
+    ohai "Files found:", Dir["*"]
+    ohai "Files in tskr:", Dir["tskr/*"] if File.directory?("tskr")
+    
+    prefix.install Dir["tskr/*"]
+    bin.install_symlink prefix/"tskr"
   end
 
   test do
