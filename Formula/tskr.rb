@@ -8,7 +8,7 @@ class Tskr < Formula
 
   def install
     libexec.install Dir["tskr/*"]
-    bin.install_symlink libexec/"tskr" => "tskr"
+    bin.install_symlink libexec/"tskr"
   end
 
   test do
