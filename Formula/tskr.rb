@@ -7,8 +7,10 @@ class Tskr < Formula
   license "MIT"
 
   def install
-    libexec.install "tskr/_internal"
-    libexec.install "tskr/tskr"
+    (buildpath/"tskr").children.each do |item|
+      libexec.install item
+    end
+    
     bin.install_symlink libexec/"tskr"
   end
 
