@@ -1,9 +1,9 @@
 class Tskr < Formula
   desc "Task management tool for developers"
   homepage "https://github.com/tskr-dev/tskr"
-  url "https://github.com/tskr-dev/tskr/releases/download/v0.0.5/tskr-macos.tar.gz"
-  sha256 "d83c1103df29756a50a735ab39162423298440cfad031bd8435ad0221304e899"
-  version "0.0.5"
+  url "https://github.com/tskr-dev/tskr/releases/download/v0.0.6/tskr-macos.tar.gz"
+  sha256 "8cc93f69cb84faca20d4d03a5de41dd0810c7c142456ed476b9c17febaabc222"
+  version "0.0.6"
   license "MIT"
 
   def install
