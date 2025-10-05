@@ -7,7 +7,8 @@ class Tskr < Formula
   license "MIT"
 
   def install
-    bin.install "tskr/tskr"
+    libexec.install Dir["tskr/*"]
+    bin.write_exec_script (libexec/"tskr")
   end
 
   test do
