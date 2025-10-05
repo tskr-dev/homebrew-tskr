@@ -7,14 +7,12 @@ class Tskr < Formula
   license "MIT"
 
   def install
-    # This will copy the entire 'tskr' directory from the build path
-    # into the formula's libexec directory.
-    # The structure will be: /usr/local/Cellar/tskr/0.0.4/libexec/tskr/...
-    libexec.install "tskr"
+    # This command copies the executable 'tskr' and its friends
+    # from your tarball's 'tskr' directory directly into libexec.
+    libexec.install Dir["tskr/*"]
     
-    # Create a symlink from the bin directory to the executable inside
-    # the directory we just installed.
-    bin.install_symlink libexec/"tskr/tskr"
+    # This now correctly links to the executable at libexec/tskr
+    bin.install_symlink libexec/"tskr"
   end
 
   test do
