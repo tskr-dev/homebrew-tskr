@@ -7,13 +7,14 @@ class Tskr < Formula
   license "MIT"
 
   def install
-    # When the tarball has a single top-level directory, Homebrew changes
-    # into it before running install. So, we install everything from
-    # the current directory ("*").
     libexec.install Dir["*"]
-    
-    # The executable 'tskr' is now at libexec/tskr, so this link is correct.
     bin.install_symlink libexec/"tskr"
+  end
+
+  def post_install
+    # Run tskr once to trigger PyInstaller unpacking/initialization
+    # Use --version as a lightweight command that won't modify anything
+    system "#{bin}/tskr", "--version"
   end
 
   test do
