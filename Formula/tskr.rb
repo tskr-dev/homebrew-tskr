@@ -7,7 +7,9 @@ class Tskr < Formula
   license "MIT"
 
   def install
-    libexec.install Dir["tskr/*"]
+    cd "tskr" do
+      libexec.install Dir["*"]
+    end
     bin.install_symlink libexec/"tskr"
   end
 
