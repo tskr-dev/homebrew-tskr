@@ -7,11 +7,14 @@ class Tskr < Formula
   license "MIT"
 
   def install
-    (buildpath/"tskr").children.each do |item|
-      libexec.install item
-    end
+    # This will copy the entire 'tskr' directory from the build path
+    # into the formula's libexec directory.
+    # The structure will be: /usr/local/Cellar/tskr/0.0.4/libexec/tskr/...
+    libexec.install "tskr"
     
-    bin.install_symlink libexec/"tskr"
+    # Create a symlink from the bin directory to the executable inside
+    # the directory we just installed.
+    bin.install_symlink libexec/"tskr/tskr"
   end
 
   test do
