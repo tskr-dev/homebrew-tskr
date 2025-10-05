@@ -7,11 +7,12 @@ class Tskr < Formula
   license "MIT"
 
   def install
-    # This command copies the executable 'tskr' and its friends
-    # from your tarball's 'tskr' directory directly into libexec.
-    libexec.install Dir["tskr/*"]
+    # When the tarball has a single top-level directory, Homebrew changes
+    # into it before running install. So, we install everything from
+    # the current directory ("*").
+    libexec.install Dir["*"]
     
-    # This now correctly links to the executable at libexec/tskr
+    # The executable 'tskr' is now at libexec/tskr, so this link is correct.
     bin.install_symlink libexec/"tskr"
   end
 
